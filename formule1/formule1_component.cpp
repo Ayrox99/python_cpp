@@ -1,23 +1,30 @@
 #include <pybind11/pybind11.h>
 using namespace std;
 
-struct Pet {
-	Pet(const string& name) : name(name) {
+char version[] = "1.0";
+
+char const* getVersion() {
+	return version;
+}
+
+struct Formula1 {
+	Pet(const int& speed) : speed(speed) {
 
 	}
-	void setName(const string& name_) { 
-		name = name_; 
+	void setSpeed(const int& speed_) { 
+		speed = speed_; 
 	}
-	const string& getName() const { 
-		return name; 
+	const string& getSpeed() const { 
+		return speed; 
 	}
-	string name;
+	int speed;
 };
 
 namespace py = pybind11;
-PYBIND11_MODULE(example, m) {
-	py::class_<Pet>(m, "Pet")
-		.def(py::init<const string&>())
-		.def("setName", &Pet::setName)
-		.def("getName", &Pet::getName);
+
+PYBIND11_MODULE(formule1_component, m) {
+	py::class_<Pet>(m, "Formula 1", py::dynamic_attr())
+		.def(py::init<const int&>())
+		.def("setSpeed", &Pet::setSpeed)
+		.def("getSpeed", &Pet::getSpeed);
 }
