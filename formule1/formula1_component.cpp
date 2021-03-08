@@ -8,13 +8,11 @@ char const* getVersion() {
 }
 
 struct Formula1 {
-	Formula1(int speed) : speed(speed) {
-
-	}
+	Formula1(int speed) : speed(speed) {}
 	void setSpeed(int speed_) { 
 		speed = speed_; 
 	}
-	const int getSpeed() const { 
+	int getSpeed() { 
 		return speed; 
 	}
 	int speed;
