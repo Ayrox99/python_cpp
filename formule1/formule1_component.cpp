@@ -8,7 +8,7 @@ char const* getVersion() {
 }
 
 struct Formula1 {
-	Pet(const int& speed) : speed(speed) {
+	Formula1(const int& speed) : speed(speed) {
 
 	}
 	void setSpeed(const int& speed_) { 
@@ -23,8 +23,8 @@ struct Formula1 {
 namespace py = pybind11;
 
 PYBIND11_MODULE(formule1_component, m) {
-	py::class_<Pet>(m, "Formula 1", py::dynamic_attr())
+	py::class_<Formula1>(m, "Formula 1", py::dynamic_attr())
 		.def(py::init<const int&>())
-		.def("setSpeed", &Pet::setSpeed)
-		.def("getSpeed", &Pet::getSpeed);
+		.def("setSpeed", &Formula1::setSpeed)
+		.def("getSpeed", &Formula1::getSpeed);
 }
