@@ -20,7 +20,7 @@ struct Formula1 {
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(formule1_component, m) {
+PYBIND11_MODULE(formula1_component, m) {
 	py::class_<Formula1>(m, "Formula1", py::dynamic_attr())
 		.def(py::init<int>())
 		.def("setSpeed", &Formula1::setSpeed)
