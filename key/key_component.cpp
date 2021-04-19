@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include "micro-ecc-master/uECC.h"
+#include "uECC.h"
 using namespace std;
 
 struct Key {
