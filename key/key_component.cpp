@@ -9,10 +9,9 @@ struct Key {
 
 	void initialize(string number) {
 		privateKey = number;
-		const uint8_t* castIntPrivateKey = reinterpret_cast<const uint8_t*>(privateKey.c_str());
 		const int publicKeySize = uECC_curve_public_key_size(uECC_secp256k1());
 		uint8_t* varIntPublicKey = new uint8_t(publicKeySize);
-		uECC_compute_public_key(castIntPrivateKey, varIntPublicKey, uECC_secp256k1());
+		publicKey = uECC_compute_public_key(varIntPublicKey, varIntPublicKey, uECC_secp256k1());
 		publicKey = string(varIntPublicKey, varIntPublicKey + publicKeySize);
 	}
 
